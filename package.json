@@ -1,0 +1,42 @@
+{
+  "name": "text-scribe",
+  "version": "1.0.0",
+  "description": "Simple module for writing lines of text with indenting",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "check": "eslint src/ --ext .js",
+    "compile": "npm run compile-prod -- --source-maps inline",
+    "webpack": "webpack",
+    "compile-prod": "babel src/ --out-dir dist/src/ --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run compile-prod && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mearns/text-scribe.git"
+  },
+  "author": "Brian Mearns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mearns/text-scribe/issues"
+  },
+  "homepage": "https://github.com/mearns/text-scribe#readme",
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-object-assign",
+      "babel-plugin-node-source-map-support"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "6.24.0",
+    "babel-eslint": "7.2.1",
+    "babel-plugin-node-source-map-support": "0.0.1",
+    "babel-plugin-transform-object-assign": "6.22.0",
+    "babel-preset-es2015": "6.24.0",
+    "eslint": "3.18.0",
+    "webpack": "2.3.3"
+  }
+}
