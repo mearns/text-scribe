@@ -1,7 +1,7 @@
 src/
 test/
-dist/
-!dist/npm/
+dist/*
+!dist/node/
 .editorconfig
 .gitattributes
 .gitignore
