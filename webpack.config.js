@@ -49,7 +49,7 @@ const libraryTargets = [
     ['global', camelCase],
     'commonjs',
     'amd',
-    'umd',
+    ['umd', camelCase],
     ['var', camelCase],
     ['this', camelCase]
 ];
