@@ -4,12 +4,13 @@
   "description": "Simple module for writing lines of text with indenting",
   "main": "dist/node/index.js",
   "scripts": {
+    "clean": "rimraf dist/",
     "check": "eslint src/ --ext .js",
-    "compile": "npm run compile-prod -- --source-maps inline --plugins babel-plugin-node-source-map-support",
-    "webpack": "webpack",
-    "compile-prod": "babel src/ --out-dir dist/node/ --copy-files",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run compile-prod && npm run test"
+    "compile:node": "if-env NODE_ENV=production && babel src/ --out-dir dist/node/ --copy-files || babel src/ --out-dir dist/node/ --copy-files --source-maps inline --plugins babel-plugin-node-source-map-support",
+    "compile:webpack": "webpack",
+    "compile": "npm-run-all --parallel compile:*",
+    "test": ">&2 echo \"Warning: no tests specified\"",
+    "build": "npm-run-all --sequential clean check test compile"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,8 @@
     "babel-preset-es2015": "6.24.0",
     "change-case": "3.0.1",
     "eslint": "3.18.0",
+    "if-env": "1.0.0",
+    "npm-run-all": "4.0.2",
     "webpack": "2.3.3"
   }
 }
