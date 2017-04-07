@@ -1,5 +1,7 @@
 src/
 test/
+dist/
+!dist/npm/
 .editorconfig
 .gitattributes
 .gitignore
