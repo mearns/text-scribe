@@ -136,10 +136,17 @@ export class TextWriter {
      *
      * @return `this` Writer object.
      */
-    writeLine(text = '') {
+    writeline(text = '') {
         this.write(text);
         this._startNewLine();
         return this;
+    }
+
+    /**
+     * A legacy alias for `writeline`.
+     */
+    writeLine(...args) {
+        return this.writeline(...args);
     }
 
     /**
@@ -162,6 +169,16 @@ export class TextWriter {
      */
     blankline() {
         return this.newline().newline();
+    }
+
+    /**
+     * Ensures that the current line is ended (with `endline`), and then
+     * adds a new line.
+     *
+     * @return `this` Writer object.
+     */
+    skipline() {
+        return this.endline().newline();
     }
 
     /**
